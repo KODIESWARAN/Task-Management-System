@@ -32,3 +32,14 @@ exports.login = async(req,res) =>{
     }
 }
 
+
+exports.logout = async (req, res) => {
+    try {
+      // No token invalidation server-side in basic JWT setup
+      res.json({ message: "Logged out successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Logout failed", error });
+    }
+  };
+  
+

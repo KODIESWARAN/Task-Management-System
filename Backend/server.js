@@ -2,6 +2,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const sequelize = require('./config/db-config')
 const User = require('./models/usermodels')
 const Task = require('./models/taskmodels')
@@ -12,6 +13,12 @@ const authmiddleware =  require('./middleware/authmiddleware')
 
 
 app.use(express.json())
+
+app.use(cors({
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+}));
+
 
 
 //Routes
